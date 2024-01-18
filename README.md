@@ -1,4 +1,5 @@
-[![Tests](https://github.com/Chair of Geoinformatics, Technical University of Munich/ckanext-scheme-sddi/workflows/Tests/badge.svg?branch=main)](https://github.com/Chair of Geoinformatics, Technical University of Munich/ckanext-scheme-sddi/actions)
+# This extension will extend the CKAN extensions developed and maintained by the CKAN community, which are required for the SDDI framework. The description of the functionalities will be updated as new features are added/changed.
+## The following description is a CKAN template and is currently not relevant for ckanext-scheme-sddi.
 
 # ckanext-scheme-sddi
 
