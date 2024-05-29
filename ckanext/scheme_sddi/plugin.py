@@ -12,14 +12,13 @@ import ckan.plugins.toolkit as toolkit
 
 class SchemeSddiPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
-    
+
     # plugins.implements(plugins.IAuthFunctions)
     # plugins.implements(plugins.IActions)
     # plugins.implements(plugins.IBlueprint)
     # plugins.implements(plugins.IClick)
     # plugins.implements(plugins.ITemplateHelpers)
     # plugins.implements(plugins.IValidators)
-    
 
     # IConfigurer
 
@@ -28,7 +27,6 @@ class SchemeSddiPlugin(plugins.SingletonPlugin):
         toolkit.add_public_directory(config_, "public")
         toolkit.add_resource("assets", "scheme_sddi")
 
-    
     # IAuthFunctions
 
     # def get_auth_functions(self):
@@ -58,4 +56,3 @@ class SchemeSddiPlugin(plugins.SingletonPlugin):
 
     # def get_validators(self):
     #     return validators.get_validators()
-    
