@@ -1,0 +1,190 @@
+scheming_version: 2
+dataset_type: dataset
+about: A reimplementation of the default CKAN dataset schema
+about_url: http://github.com/ckan/ckanext-scheming
+
+dataset_fields:
+  - field_name: title
+    label: Title
+    preset: title
+    form_placeholder: eg. A descriptive title
+
+  - field_name: name
+    label: URL
+    preset: dataset_slug
+    form_placeholder: eg. my-dataset
+
+  - field_name: notes
+    label: Description
+    required: true
+    validators: scheming_required
+    form_snippet: markdown.html
+    form_placeholder: eg. Some useful notes about the data
+
+  - field_name: tag_string
+    label: Tags
+    required: true
+    preset: tag_string_autocomplete
+    form_placeholder: eg. economy, mental health, government
+    help_text:
+      Über Tags können Katalogeinträge besser gefunden werden. Ein Tag ist
+      ein Wort, welches im Zusammenhang mit dem Eintrag steht.
+
+  - field_name: license_id
+    label: License
+    required: true
+    validators: scheming_required
+    form_snippet: license.html
+    help_text: License definitions and additional information can be found at http://opendefinition.org/ Es wird empfohlen Creative Commons Zero oder Creative Commons Namensnennung für die offene Daten zu nutzen.
+
+  ##### requires composite and repeating ext#######
+  - field_name: author
+    label: Author
+    preset: composite_repeating
+    form_blanks: 1
+    subfields:
+      - field_name: author
+        label: Author
+        required: true
+        validators: scheming_required
+        form_placeholder: Joe Bloggs
+      - field_name: author_email
+        form_placeholder: joe@example.com
+        label: Author Email
+
+  #####  requires composite and repeating ext #########
+  - field_name: maintainer
+    label: Maintainer
+    preset: composite_repeating
+    form_blanks: 1
+    subfields:
+      - field_name: maintainer
+        label: Maintainer
+        form_placeholder: Joe Bloggs
+      - field_name: Maintainer Email
+        form_placeholder: joe@example.com
+        label: Maintainer Email
+      - field_name: phone
+        label: Phone number
+        display_snippet: text.html
+        form_placeholder: "+49 8161 71 0000"
+      - field_name: role
+        label: Role
+        preset: select
+        display_snippet: multiple_select.html
+        choices:
+          - value: data collector
+            label: Datensammler
+          - value: contact person
+            label: Experte
+
+  - field_name: owner_org
+    label: Organization
+    form_snippet: organization_alone.html
+    help_text: Legt fest welcher Organisation der Katalogeintrag zugeordnet ist.
+  
+  - field_name: owner_org
+    label: Organization
+    form_snippet: visibility.html
+    help_text: Legt fest wer den Katalogeintrag sehen kann.
+    
+  - field_name: group
+    label: Group
+    form_snippet: group.html
+    display_snippet:
+
+  - field_name: language
+    label: Language
+    validators: ignore_missing
+    preset: select
+    choices:
+      - value: de
+        label: Deutsch
+      - value: en
+        label: English
+        help_text: Legt fest in welcher Sprache der Katalogeintrag verfasst ist.
+
+  - field_name: version
+    label: Version
+    validators: ignore_missing unicode_safe package_version_validator
+    form_placeholder: "1.0"
+    help_text:
+      Über die Versionsnummer können Änderungen am Katalogeintrag sichtbar
+      gemacht werden. Je höher die Versionsnummer ist, desto öfter wurde der Katalogeintrag
+      bearbeitet.
+
+  - field_name: begin_collection_date
+    label: Start des Gültigkeitszeitraumes
+    preset: date
+  - field_name: end_collection_date
+    label: Ende des Gültigkeitszeitraumes
+    preset: date
+    validators: convert_to_extras
+    help_text:
+      Dies markiert den Gültigkeitszeitraum des Katalogeintrags. Anhand dieses
+      Zeitraums kann später nach Einträgen gesucht werden.
+
+  # request spatial
+  - field_name: spatial
+    label:
+      en: Spatial extent
+      de: Räumliche Ausdehnung
+    form_snippet: spatial.html
+    help_text: Über eine räumliche Ausdehnung (Punkt oder Polygon, nicht beides gleichzeitig) kann später nach Katalogeinträgen gesucht werden.
+
+  - field_name: licence_agreement
+    label: Datenschutzerklärung
+    required: true
+    preset: multiple_checkbox
+    choices:
+      - value: licence_agreement_check
+        label: Hiermit bestätige ich, dass sämtliche von mir eingetragenen Daten unter die oben ausgewählte Lizenz fallen.
+        
+  - field_name: custom-fields
+    label: Benutzerdefiniertes Feld
+    form_snippet: custom_form_fields.html
+    
+resource_fields:
+  - field_name: url
+    label: URL
+    preset: resource_url_upload
+
+  - field_name: name
+    label: Name
+    form_placeholder: eg. January 2011 Gold Prices
+
+  - field_name: description
+    label: Description
+    form_snippet: markdown.html
+    form_placeholder: Some useful notes about the data
+
+  - field_name: format
+    label: Format
+    required: true
+    validators: scheming_required
+    preset: resource_format_autocomplete
+
+  # restricted and composite are required
+  - field_name: restricted
+    preset: composite
+    subfields:
+      - field_name: level
+        label: Zugriffsrechte
+        preset: select
+        form_include_blank_choice: "false"
+        required: "true"
+        choices:
+          - value: public
+            label: Öffentlich
+          - value: registered
+            label: Registrierte Benutzer
+          - value: same_organization
+            label: Mitlgieder der selben Organisation
+          - value: only_allowed_users
+            label: Nur ausgewählte Benutzer
+            help_text: Legt fest, wer Zugriff auf die Ressource hat.
+    
+  - field_name: allowed_users
+    label: Allowed Users
+    preset: tag_string_autocomplete
+    data-module-source: "/api/2/util/user/autocomplete?q=?"
