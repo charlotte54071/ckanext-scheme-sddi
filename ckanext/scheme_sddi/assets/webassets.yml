@@ -1,14 +1,14 @@
-# scheme_sddi-js:
-#   filter: rjsmin
-#   output: ckanext-scheme_sddi/%(version)s-scheme_sddi.js
-#   contents:
-#     - js/scheme_sddi.js
-#   extra:
-#     preload:
-#       - base/main
+composite-repeating_js:
+  filter: rjsmin
+  output: scheme_sddi/%(version)s_composite-repeating.js
+  contents:
+    - js/composite-repeating.js
+  extra:
+    preload:
+      - base/main
 
-# scheme_sddi-css:
-#   filter: cssrewrite
-#   output: ckanext-scheme_sddi/%(version)s-scheme_sddi.css
-#   contents:
-#     - css/scheme_sddi.css
+composite_css:
+  contents:
+    - css/composite.css
+  output: scheme_sddi/%(version)s_composite.css
+  filters: cssrewrite

@@ -1,58 +1,43 @@
 import ckan.plugins as plugins
-import ckan.plugins.toolkit as toolkit
+import ckan.plugins.toolkit as tk
 
-
-# import ckanext.scheme_sddi.cli as cli
-# import ckanext.scheme_sddi.helpers as helpers
-# import ckanext.scheme_sddi.views as views
-# from ckanext.scheme_sddi.logic import (
-#     action, auth, validators
-# )
+import ckanext.scheme_sddi.helpers as helpers
+import ckanext.scheme_sddi.validators as validators
 
 
 class SchemeSddiPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
-
-    # plugins.implements(plugins.IAuthFunctions)
-    # plugins.implements(plugins.IActions)
-    # plugins.implements(plugins.IBlueprint)
-    # plugins.implements(plugins.IClick)
-    # plugins.implements(plugins.ITemplateHelpers)
-    # plugins.implements(plugins.IValidators)
+    plugins.implements(plugins.IValidators)
+    plugins.implements(plugins.ITemplateHelpers)
 
     # IConfigurer
 
     def update_config(self, config_):
-        toolkit.add_template_directory(config_, "templates")
-        toolkit.add_public_directory(config_, "public")
-        toolkit.add_resource("assets", "scheme_sddi")
-
-    # IAuthFunctions
-
-    # def get_auth_functions(self):
-    #     return auth.get_auth_functions()
-
-    # IActions
-
-    # def get_actions(self):
-    #     return action.get_actions()
-
-    # IBlueprint
-
-    # def get_blueprint(self):
-    #     return views.get_blueprints()
-
-    # IClick
-
-    # def get_commands(self):
-    #     return cli.get_commands()
+        tk.add_template_directory(config_, "templates")
+        tk.add_public_directory(config_, "public")
+        tk.add_resource("assets", "scheme_sddi")
 
     # ITemplateHelpers
 
-    # def get_helpers(self):
-    #     return helpers.get_helpers()
+    def get_helpers(self):
+        return {
+            "composite_get_as_dict": helpers.composite_get_as_dict,
+            "composite_get_value_dict": helpers.composite_get_value_dict,
+            "composite_get_label_dict": helpers.composite_get_label_dict,
+            "composite_get_choices_dict": helpers.composite_get_choices_dict,
+            "composite_get_name_list": helpers.composite_get_name_list,
+            "composite_repeating_get_value_dict_list": helpers.composite_repeating_get_value_dict_list,
+            "composite_is_mail": helpers.composite_is_mail,
+            "composite_is_list": helpers.composite_is_list,
+            "composite_join_list": helpers.composite_join_list,
+            "composite_get_markup": helpers.composite_get_markup,
+            "composite_get_default_value": helpers.composite_get_default_value,
+        }
 
     # IValidators
 
-    # def get_validators(self):
-    #     return validators.get_validators()
+    def get_validators(self):
+        return {
+            "composite_group2json": validators.composite_group2json,
+            "composite_repeating_group2json": validators.composite_repeating_group2json,
+        }
