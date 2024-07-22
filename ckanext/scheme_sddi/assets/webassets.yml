@@ -11,3 +11,4 @@ composite_css:
   contents:
     - css/composite.css
   output: scheme_sddi/%(version)s_composite.css
+#  filters: cssrewrite
