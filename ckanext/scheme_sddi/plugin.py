@@ -46,16 +46,15 @@ class SchemeSddiPlugin(plugins.SingletonPlugin):
         }
 
     # IPackageController
+    # def before_dataset_index(self, dataset_dict):
+    #     return self.before_index(dataset_dict)
 
-    def before_dataset_index(self, dataset_dict):
-        return self.before_index(dataset_dict)
+    # def before_index(self, dataset_dict):
+    #     if "author" in dataset_dict:
+    #         dataset_dict["author"] = json.dumps(dataset_dict.get("author"))
 
-    def before_index(self, dataset_dict):
-        if "author" in dataset_dict:
-            dataset_dict["author"] = json.dumps(dataset_dict.get("author"))
+    #     if "maintainer" in dataset_dict:
+    #         dataset_dict["maintainer"] = json.dumps(dataset_dict.get("maintainer"))
 
-        if "maintainer" in dataset_dict:
-            dataset_dict["maintainer"] = json.dumps(dataset_dict.get("maintainer"))
+    #     return dataset_dict
 
-        return dataset_dict
-    

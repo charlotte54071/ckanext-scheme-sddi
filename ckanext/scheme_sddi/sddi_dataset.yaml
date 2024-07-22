@@ -56,7 +56,7 @@ dataset_fields:
   - field_name: maintainer
     label: Maintainer
     form_blanks: 1
-    cpreset: composite_repeating
+    preset: composite_repeating
     subfields:
       - field_name: maintainer_name
         label: Maintainer
