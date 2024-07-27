@@ -169,23 +169,20 @@ resource_fields:
   # restricted and composite are required
   - field_name: restricted
     label: Zugriffsrechte
-    repeating_subfields:
-
-      - field_name: level
-        label: Zugriffsrechte
-        preset: select
-        form_include_blank_choice: False
-        required: True
-        choices:
-          - value: public
-            label: Öffentlich
-          - value: registered
-            label: Registrierte Benutzer
-          - value: same_organization
-            label: Mitlgieder der selben Organisation
-          - value: only_allowed_users
-            label: Nur ausgewählte Benutzer
-            help_text: Legt fest, wer Zugriff auf die Ressource hat.
+    validators: scheming_required
+    preset: select
+    form_include_blank_choice: False
+    required: True
+    choices:
+      - value: public
+        label: Öffentlich
+      - value: registered
+        label: Registrierte Benutzer
+      - value: same_organization
+        label: Mitlgieder der selben Organisation
+      - value: only_allowed_users
+        label: Nur ausgewählte Benutzer
+        help_text: Legt fest, wer Zugriff auf die Ressource hat.
     
   - field_name: allowed_users
     label: Allowed Users

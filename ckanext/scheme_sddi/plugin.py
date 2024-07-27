@@ -6,12 +6,13 @@ import ckan.plugins.toolkit as tk
 import ckanext.scheme_sddi.helpers as helpers
 import ckanext.scheme_sddi.validators as validators
 
+from ckanext.scheme_sddi.views import blueprint
 
 class SchemeSddiPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IValidators)
     plugins.implements(plugins.ITemplateHelpers)
-    plugins.implements(plugins.IPackageController, inherit=True)
+    plugins.implements(plugins.IBlueprint)
 
     # IConfigurer
 
@@ -45,16 +46,6 @@ class SchemeSddiPlugin(plugins.SingletonPlugin):
             "composite_repeating_group2json": validators.composite_repeating_group2json,
         }
 
-    # IPackageController
-    # def before_dataset_index(self, dataset_dict):
-    #     return self.before_index(dataset_dict)
-
-    # def before_index(self, dataset_dict):
-    #     if "author" in dataset_dict:
-    #         dataset_dict["author"] = json.dumps(dataset_dict.get("author"))
-
-    #     if "maintainer" in dataset_dict:
-    #         dataset_dict["maintainer"] = json.dumps(dataset_dict.get("maintainer"))
-
-    #     return dataset_dict
-
+    # IBlueprint
+    def get_blueprint(self):
+        return [blueprint]
