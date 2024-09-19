@@ -170,19 +170,3 @@ def composite_repeating_group2json(field, schema):
             not_empty(key, data, errors, context)
 
     return validator
-
-# this method doesn't work so it shouldn't be used
-# def composite_group2json_output(value):
-#    """
-#    Return stored json representation as a dictionary, if
-#    value is already a dictionary just pass it through.
-#    """
-#    if isinstance(value, dict):
-#        return value
-#    if value is None:
-#        return {}
-#    try:
-#        return json.loads(value)
-#    except ValueError:
-#        logger.warn ("ValeError: " + str(value))
-#    return {}
