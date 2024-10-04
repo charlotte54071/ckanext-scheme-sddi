@@ -26,6 +26,6 @@ For releases `< 1.0.0` minor version steps may indicate breaking changes too.
 
 ### Known issues
 
-[Unreleased]: https://github.com/tum-gis/ckanext-relation-sddi/compare/0.0.3...HEAD
-[0.0.1]: https://github.com/tum-gis/ckanext-relation-sddi/releases/tag/0.0.1
+[Unreleased]: https://github.com/MarijaKnezevic/ckanext-scheme-sddi/compare/0.0.3...HEAD
+[0.0.1]: https://github.com/MarijaKnezevic/ckanext-scheme-sddi/releases/tag/0.0.1
 [template]: https://keepachangelog.com/en/1.0.0/
