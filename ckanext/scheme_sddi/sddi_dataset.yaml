@@ -133,6 +133,7 @@ dataset_fields:
       en: Spatial extent
       de: Räumliche Ausdehnung
     form_snippet: spatial.html
+    display_snippet: spatial.html
     help_text: Über eine räumliche Ausdehnung (Punkt oder Polygon, nicht beides gleichzeitig) kann später nach Katalogeinträgen gesucht werden.
 
   - field_name: licence_agreement
