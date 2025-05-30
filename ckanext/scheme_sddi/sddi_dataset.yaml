@@ -189,3 +189,39 @@ resource_fields:
     label: Allowed Users
     preset: tag_string_autocomplete
     data-module-source: "/api/2/util/user/autocomplete?q=?"
+
+  # DIN SPEC 91357 Digital Twin platform field
+  - field_name: lifecycle_phase
+    label: Life Cycle Phase
+    preset: select
+    required: True
+    choices:
+      - value: pre-construction
+        label: Pre-Construction
+      - value: survey
+        label: Survey
+      - value: design
+        label: Design
+      - value: operation
+        label: Operation
+      - value: maintenance-update
+        label: Maintenance and Update
+      - value: retirement
+        label: Retirement
+    help_text: Select the current phase of the asset or dataset within its life cycle.
+
+  # DIN SPEC 91357 Digital Twin platform field
+  - field_name: project_type
+    label: Project Type
+    preset: select
+    choices:
+      - value: classification
+        label: Classification
+      - value: prediction
+        label: Prediction
+      - value: visualization
+        label: Visualization
+
+
+
+
