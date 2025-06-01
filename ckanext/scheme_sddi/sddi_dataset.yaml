@@ -3,6 +3,12 @@ dataset_type: dataset
 about: A reimplementation of the default CKAN dataset schema
 about_url: http://github.com/ckan/ckanext-scheming
 
+form_config:
+  use_default_helpers: true
+  js_modules:
+    - conditional_fields
+
+
 dataset_fields:
   - field_name: title
     label: Title
