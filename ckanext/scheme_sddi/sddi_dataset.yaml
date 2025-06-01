@@ -6,7 +6,8 @@ about_url: http://github.com/ckan/ckanext-scheming
 form_config:
   use_default_helpers: true
   js_modules:
-    - conditional_fields
+    - ckanext/scheming/js/conditional_fields
+
 
 
 dataset_fields:
@@ -216,6 +217,7 @@ resource_fields:
         label: Retirement
     help_text: Select the current phase of the asset or dataset within its life cycle.
 
+resource_fields:
   # Main category field
   - field_name: resource_type
     label: Main Category
