@@ -395,7 +395,7 @@ resource_fields:
 
   - field_name: supported_method
     label: Supported Method
-    preset: multiple_choice
+    preset: multiple_checkbox
     relevant: resource_type=online_service
     choices:
       - value: GET
