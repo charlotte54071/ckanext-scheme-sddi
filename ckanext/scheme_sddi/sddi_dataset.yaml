@@ -210,9 +210,9 @@ resource_fields:
         label: Retirement
     
   - field_name: test_flag
-    label: THIS FIELD PROVES YAML WORKS!
-    form_snippet: markdown.html
-    form_placeholder: test something
+    label: TEST FIELD WORKS
+    preset: text
+    form_placeholder: Hello from schema
 
 
   
