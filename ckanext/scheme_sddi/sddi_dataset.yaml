@@ -211,7 +211,7 @@ resource_fields:
     
   - field_name: test_flag
     label: THIS FIELD PROVES YAML WORKS!
-    form_placeholder: Hello from schema
+    form_snippet: markdown.html
     form_placeholder: test something
 
 
