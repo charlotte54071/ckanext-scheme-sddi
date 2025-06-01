@@ -211,7 +211,7 @@ resource_fields:
     
   - field_name: test_flag
     label: TEST FIELD WORKS
-    form_snippet: markdown.html
+    form_snippet: text.html
     form_placeholder: Hello from schema
 
 
