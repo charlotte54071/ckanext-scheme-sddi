@@ -209,5 +209,9 @@ resource_fields:
       - value: retirement
         label: Retirement
     
+  - field_name: test_flag
+    label: THIS FIELD PROVES YAML WORKS!
+    form_placeholder: Hello from schema
+
 
   
