@@ -217,7 +217,6 @@ resource_fields:
         label: Retirement
     help_text: Select the current phase of the asset or dataset within its life cycle.
 
-resource_fields:
   # Main category field
   - field_name: resource_type
     label: Main Category
@@ -482,8 +481,8 @@ resource_fields:
     label: Software Requirements
     relevant: resource_type=software
   
-  - field_name: suppoeted_platform
-    label: Suppoeted Platform
+  - field_name: supported_platform
+    label: Supported Platform
     relevant: resource_type=software
   
   - field_name: operating_system
@@ -512,8 +511,8 @@ resource_fields:
     label: Runtime Platform
     relevant: resource_type=method
   
-  - field_name: auther
-    label: Auther
+  - field_name: author
+    label: Author
     relevant: resource_type=method
 
   - field_name: copyrigh_holder
@@ -577,8 +576,6 @@ resource_fields:
         label: Humidity Sensor
       - value: light_sensor
         label: Light Sensor
-      - value: humidity_sensor
-        label: Humidity Sensor
       - value: tilt_sensor
         label: Tilt/Inclinometer Sensor
       - value: pressure_sensor
