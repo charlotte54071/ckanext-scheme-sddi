@@ -1,11 +1,13 @@
+scheming_version: 2
+
+form_attrs:
+  data-module: scheming-relevant      # ← Scheming 会把它写进 <form>
+
 form_config:
   js_modules:
-    # 二选一，哪个能加载成功用哪个
-    - ckanext/scheming/js/conditional_fields     # 新版路径
-    - ckanext/scheming/static/scheming-relevant  # 旧版路径
+    - ckanext/scheming/js/conditional_fields   # 若旧版可换成 static/scheming-relevant
 
 
-scheming_version: 2
 dataset_type: dataset
 about: A reimplementation of the default CKAN dataset schema
 about_url: http://github.com/ckan/ckanext-scheming
