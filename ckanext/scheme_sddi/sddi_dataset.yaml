@@ -248,7 +248,7 @@ resource_fields:
         label: Geo Object
 
   # --- Category：Project ---
- -  field_name: building_height
+  - field_name: building_height
     label: Building Height (meters)
     required: false
     categories: ["geoobject"]         # <--- custom key indicating only for Geoobjekt
