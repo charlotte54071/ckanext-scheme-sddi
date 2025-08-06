@@ -1,7 +1,9 @@
 scheming_version: 2
-dataset_type: dataset
-about: A reimplementation of the default CKAN dataset schema
-about_url: http://github.com/ckan/ckanext-scheming
+dataset_type: software
+
+about: software data
+about_url: https://example.com/software
+
 
 
 dataset_fields:
@@ -92,7 +94,7 @@ dataset_fields:
     help_text: Determines who can see the catalog entry.
     
   - field_name: group_help
-    form_snippet: dataset_group_help.html
+    form_snippet: software_group_help.html
     label: ''
     display_snippet: null
   
@@ -102,6 +104,7 @@ dataset_fields:
     display_snippet: null
     help_text: Please select "Dataset and Documents" as the main category. 
 
+  
   # DIN SPEC 91357 Digital Twin platform field
   - field_name: lifecycle_phase
     label: Life Cycle Phase
@@ -147,61 +150,45 @@ dataset_fields:
         label: LPH 9 – Operation Support
     help_text: The performance phase according to HOAI to which this resource belongs. HOAI (Honorarordnung für Architekten und Ingenieure) is the German Fee Structure for Architects and Engineers, which defines the phases of planning and execution in construction projects.
     
-  - field_name: data_status
-    label: Data Status
-    preset: select
-    required: True
-    choices:
-      - value: work_in_progress
-        label: Work in Progress
-      - value: shared
-        label: Shared
-      - value: published
-        label: Published
-      - value: archived
-        label: Archived
-    help_text: Indicates the current status of the data, which can be used to filter datasets based on their readiness or availability.
-
-  - field_name: data_type
-    label: Data Type
+  - field_name: software_application_category
+    label: Software Application Category
     preset: select
     choices:
-      - value: bim_nd
-        label: BIM nD
-      - value: geospatial_data
-        label: Geospatial Data
-      - value: point_cloud_data
-        label: Point Cloud Data
-      - value: approval_document
-        label: Approval Document
-      - value: contract
-        label: Contract
-      - value: media_files
-        label: Media Files
-      - value: reports
-        label: Reports
+      - value: game
+        label: Game
+      - value: multimedia
+        label: Multimedia
       - value: other
         label: Other
-    help_text: Specifies the type of data contained in the dataset (structrued, semi-structrued, unstructrued), which can extended further using custom fields.
+    help_text: The category of the software application. 
+    
+  - field_name: memory_requirements
+    label: Memory Requirements
+    help_text: The amount of memory required to run the software application effectively. e.g. "4 GB RAM".
 
-  - field_name: data_standard
-    label: Data Standard
-    preset: select
-    choices:
-      - value: iso_19650
-        label: ISO 19650
-      - value: ifc_standard
-        label: IFC Standard
-      - value: iso_19115
-        label: ISO 19115
-      - value: ogc_cityGML
-        label: OGC CityGML
-      - value: las_specification_1.4
-        label: LAS Specification 1.4
-      - value: open_contract_data_standard
-        label: Open Contract Data Standard (OCDS)
-      - value: other
-        label: Other
+  - field_name: software_requirements
+    label: Software Requirements
+    help_text: This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (e.g., DirectX, Java or .NET runtime)
+  
+  
+  - field_name: supported_platform
+    label: Supported Platform
+    help_text: List the platforms on which the software application can run, such as operating systems (e.g., Windows, macOS, Linux), hardware architectures (e.g., x86, ARM), or if it is supported on mobile or web environments.
+  
+  - field_name: operating_system
+    label: Operating System
+    help_text: The operating systems on which the software application can run. This includes Windows, macOS, Linux, Android, iOS, etc.
+    
+
+  - field_name: feature_list
+    label: Feature List
+    help_text: A list of key features or functionalities of the software application. This can include capabilities like data analysis, visualization, reporting, etc.
+  
+  
+  - field_name: supporting_data
+    label: Supporting Data
+    help_text: List any data, documentation, or related tools that support the software application (e.g., datasets, manuals, APIs, or companion software).
+   
   - field_name: language
     label: Language
     validators: ignore_missing
@@ -247,9 +234,11 @@ dataset_fields:
       - value: licence_agreement_check
         label: I hereby confirm that all data entered by me is subject to the license selected above.
     
+
   - field_name: custom-fields
     label: Benutzerdefiniertes Feld
     form_snippet: custom_form_fields.html
+
 
 resource_fields:
   - field_name: url
@@ -279,13 +268,13 @@ resource_fields:
     required: True
     choices:
       - value: public
-        label: Öffentlich
+        label: Public
       - value: registered
-        label: Registrierte Benutzer
+        label: Registered Users
       - value: same_organization
-        label: Mitlgieder der selben Organisation
+        label: Members of The Same Organization
       - value: only_allowed_users
-        label: Nur ausgewählte Benutzer
+        label: Only Selected Users
         help_text: Determines who has access to the resource.
     
   - field_name: allowed_users

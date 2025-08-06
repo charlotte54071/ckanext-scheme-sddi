@@ -1,6 +1,6 @@
 scheming_version: 2
-dataset_type: dataset
-about: A reimplementation of the default CKAN dataset schema
+dataset_type: digitaltwin
+about: digital_twin data
 about_url: http://github.com/ckan/ckanext-scheming
 
 
@@ -92,7 +92,7 @@ dataset_fields:
     help_text: Determines who can see the catalog entry.
     
   - field_name: group_help
-    form_snippet: dataset_group_help.html
+    form_snippet: digital_twin_group_help.html
     label: ''
     display_snippet: null
   
@@ -100,8 +100,9 @@ dataset_fields:
     label: Group
     form_snippet: group.html
     display_snippet: null
-    help_text: Please select "Dataset and Documents" as the main category. 
+  
 
+  
   # DIN SPEC 91357 Digital Twin platform field
   - field_name: lifecycle_phase
     label: Life Cycle Phase
@@ -147,61 +148,61 @@ dataset_fields:
         label: LPH 9 – Operation Support
     help_text: The performance phase according to HOAI to which this resource belongs. HOAI (Honorarordnung für Architekten und Ingenieure) is the German Fee Structure for Architects and Engineers, which defines the phases of planning and execution in construction projects.
     
-  - field_name: data_status
-    label: Data Status
+  - field_name: simulation_model
+    label: Simulation Model
+    help_text: The simulation model used in the digital twin. This can include various types of models such as BIM (Building Information Modeling), GIS (Geographic Information Systems), or other simulation frameworks.
+
+  - field_name: simulation_model
+    label: Simulation Model
+    help_text: The simulation model used in the digital twin. This can include various types of models such as BIM (Building Information Modeling), GIS (Geographic Information Systems), or other simulation frameworks.
+  
+  - field_name: twin_level
+    label: Digital Twin Level
     preset: select
+    choices:
+    - value: component
+      label: Component Level - Individual components or parts
+    - value: asset
+      label: Asset Level - Complete asset or equipment
+    - value: system
+      label: System Level - System of interconnected assets
+    - value: network
+      label: Network Level - Network of systems
+    - value: enterprise
+      label: Enterprise Level - Entire organization or facility
+    help_text: Hierarchy level of the digital twin based on ISO 23247 framework. References are ISO 23247-1:2021 Clause 5.3 (Digital twin hierarchy), ISO 15926-2:2003 (Industrial automation systems - Integration of life-cycle data), IEC 62264-1
+
+  - field_name: twin_capabilities
+    label: Digital Twin Capabilities
+    preset: multiple_checkbox
     required: True
     choices:
-      - value: work_in_progress
-        label: Work in Progress
-      - value: shared
-        label: Shared
-      - value: published
-        label: Published
-      - value: archived
-        label: Archived
-    help_text: Indicates the current status of the data, which can be used to filter datasets based on their readiness or availability.
+        - value: visualization
+          label: 3D Visualization & Virtual Reality
+        - value: monitoring
+          label: Real-time Monitoring
+        - value: simulation
+          label: Simulation & What-if Analysis
+        - value: prediction
+          label: Predictive Analytics
+        - value: optimization
+          label: Optimization & Decision Support
+        - value: control
+          label: Control & Automation
+        - value: maintenance
+          label: Predictive Maintenance
+        - value: training
+          label: Training & Education
+        - value: compliance
+          label: Compliance Monitoring
+        - value: energy_management
+          label: Energy Management
+        - value: safety_monitoring
+          label: Safety & Security Monitoring
+        - value: collaboration
+          label: Collaborative Planning
+    help_text: Functional capabilities provided by this digital twin. 
 
-  - field_name: data_type
-    label: Data Type
-    preset: select
-    choices:
-      - value: bim_nd
-        label: BIM nD
-      - value: geospatial_data
-        label: Geospatial Data
-      - value: point_cloud_data
-        label: Point Cloud Data
-      - value: approval_document
-        label: Approval Document
-      - value: contract
-        label: Contract
-      - value: media_files
-        label: Media Files
-      - value: reports
-        label: Reports
-      - value: other
-        label: Other
-    help_text: Specifies the type of data contained in the dataset (structrued, semi-structrued, unstructrued), which can extended further using custom fields.
-
-  - field_name: data_standard
-    label: Data Standard
-    preset: select
-    choices:
-      - value: iso_19650
-        label: ISO 19650
-      - value: ifc_standard
-        label: IFC Standard
-      - value: iso_19115
-        label: ISO 19115
-      - value: ogc_cityGML
-        label: OGC CityGML
-      - value: las_specification_1.4
-        label: LAS Specification 1.4
-      - value: open_contract_data_standard
-        label: Open Contract Data Standard (OCDS)
-      - value: other
-        label: Other
   - field_name: language
     label: Language
     validators: ignore_missing
@@ -247,6 +248,7 @@ dataset_fields:
       - value: licence_agreement_check
         label: I hereby confirm that all data entered by me is subject to the license selected above.
     
+
   - field_name: custom-fields
     label: Benutzerdefiniertes Feld
     form_snippet: custom_form_fields.html

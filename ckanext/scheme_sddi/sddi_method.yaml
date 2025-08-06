@@ -1,6 +1,6 @@
 scheming_version: 2
-dataset_type: dataset
-about: A reimplementation of the default CKAN dataset schema
+dataset_type: method
+about: method data
 about_url: http://github.com/ckan/ckanext-scheming
 
 
@@ -92,7 +92,7 @@ dataset_fields:
     help_text: Determines who can see the catalog entry.
     
   - field_name: group_help
-    form_snippet: dataset_group_help.html
+    form_snippet: method_group_help.html
     label: ''
     display_snippet: null
   
@@ -100,8 +100,9 @@ dataset_fields:
     label: Group
     form_snippet: group.html
     display_snippet: null
-    help_text: Please select "Dataset and Documents" as the main category. 
+  
 
+  
   # DIN SPEC 91357 Digital Twin platform field
   - field_name: lifecycle_phase
     label: Life Cycle Phase
@@ -147,61 +148,34 @@ dataset_fields:
         label: LPH 9 – Operation Support
     help_text: The performance phase according to HOAI to which this resource belongs. HOAI (Honorarordnung für Architekten und Ingenieure) is the German Fee Structure for Architects and Engineers, which defines the phases of planning and execution in construction projects.
     
-  - field_name: data_status
-    label: Data Status
-    preset: select
-    required: True
-    choices:
-      - value: work_in_progress
-        label: Work in Progress
-      - value: shared
-        label: Shared
-      - value: published
-        label: Published
-      - value: archived
-        label: Archived
-    help_text: Indicates the current status of the data, which can be used to filter datasets based on their readiness or availability.
+  - field_name: type
+    label: Type
+    help_text: Specify whether this method is a SoftwareSourceCode or a SoftwareApplication.
 
-  - field_name: data_type
-    label: Data Type
-    preset: select
-    choices:
-      - value: bim_nd
-        label: BIM nD
-      - value: geospatial_data
-        label: Geospatial Data
-      - value: point_cloud_data
-        label: Point Cloud Data
-      - value: approval_document
-        label: Approval Document
-      - value: contract
-        label: Contract
-      - value: media_files
-        label: Media Files
-      - value: reports
-        label: Reports
-      - value: other
-        label: Other
-    help_text: Specifies the type of data contained in the dataset (structrued, semi-structrued, unstructrued), which can extended further using custom fields.
+  - field_name: programming_language
+    label: Programming Language
+    help_text: The programming language used to develop the software application (e.g., Python, Java, C++).
 
-  - field_name: data_standard
-    label: Data Standard
-    preset: select
-    choices:
-      - value: iso_19650
-        label: ISO 19650
-      - value: ifc_standard
-        label: IFC Standard
-      - value: iso_19115
-        label: ISO 19115
-      - value: ogc_cityGML
-        label: OGC CityGML
-      - value: las_specification_1.4
-        label: LAS Specification 1.4
-      - value: open_contract_data_standard
-        label: Open Contract Data Standard (OCDS)
-      - value: other
-        label: Other
+  - field_name: runtime_platform
+    label: Runtime Platform
+    help_text: Runtime platform or script interpreter dependencies (Example - Java v1, Python2.3, .Net Framework 3.0).
+  
+  - field_name: author
+    label: Author
+    help_text: The person or organization that created the software application. This can include individual developers, development teams, or companies.
+
+  - field_name: copyrigh_holder
+    label: Copyright Holder
+    help_text: The individual or organization that holds the copyright for the software application. This is typically the author or the organization that employs the author.
+
+  - field_name: input_parameter
+    label: Input Parameter
+    help_text: List the input parameters that the method requires to execute. This can include data formats, types, or specific values that need to be provided.
+
+  - field_name: output_parameter
+    label: Output Parameter
+    help_text: Describe the output parameters that the method produces after execution. This can include data formats, types, or specific results that are generated.
+
   - field_name: language
     label: Language
     validators: ignore_missing
@@ -247,6 +221,7 @@ dataset_fields:
       - value: licence_agreement_check
         label: I hereby confirm that all data entered by me is subject to the license selected above.
     
+
   - field_name: custom-fields
     label: Benutzerdefiniertes Feld
     form_snippet: custom_form_fields.html
