@@ -152,10 +152,6 @@ dataset_fields:
     label: Simulation Model
     help_text: The simulation model used in the digital twin. This can include various types of models such as BIM (Building Information Modeling), GIS (Geographic Information Systems), or other simulation frameworks.
 
-  - field_name: simulation_model
-    label: Simulation Model
-    help_text: The simulation model used in the digital twin. This can include various types of models such as BIM (Building Information Modeling), GIS (Geographic Information Systems), or other simulation frameworks.
-  
   - field_name: twin_level
     label: Digital Twin Level
     preset: select
@@ -201,6 +197,8 @@ dataset_fields:
           label: Safety & Security Monitoring
         - value: collaboration
           label: Collaborative Planning
+        - value: other
+          label: Other
     help_text: Functional capabilities provided by this digital twin. 
 
   - field_name: language
