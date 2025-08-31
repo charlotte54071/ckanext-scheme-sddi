@@ -160,7 +160,7 @@ dataset_fields:
         label: Multimedia
       - value: other
         label: Other
-    help_text: The category of the software application. 
+    help_text: Classify the software according to its primary use, for example as a visualization tool, an analysis engine, or a monitoring application.
     
   - field_name: memory_requirements
     label: Memory Requirements
@@ -173,7 +173,7 @@ dataset_fields:
   
   - field_name: supported_platform
     label: Supported Platform
-    help_text: List the platforms on which the software application can run, such as operating systems (e.g., Windows, macOS, Linux), hardware architectures (e.g., x86, ARM), or if it is supported on mobile or web environments.
+    help_text: If it is supported on mobile or web environments.
   
   - field_name: operating_system
     label: Operating System
@@ -187,7 +187,7 @@ dataset_fields:
   
   - field_name: supporting_data
     label: Supporting Data
-    help_text: List any data, documentation, or related tools that support the software application (e.g., datasets, manuals, APIs, or companion software).
+    help_text: List data formats and sources that the software can handle, such as IFC models or sensor feeds, highlighting its role in integrating with Digital Twin workflows.  
    
   - field_name: language
     label: Language
